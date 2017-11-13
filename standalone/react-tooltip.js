@@ -2014,16 +2014,20 @@ var ReactTooltip = (0, _staticMethods2.default)(_class = (0, _windowListener2.de
   }, {
     key: 'addScrollListener',
     value: function addScrollListener(e) {
+      var _this8 = this;
+
       var isCaptureMode = this.isCapture(e.currentTarget);
       this.getScrollHideListenerNode().forEach(function (n) {
-        n.addEventListener('scroll', this.hideTooltip, isCaptureMode);
+        n.addEventListener('scroll', _this8.hideTooltip, isCaptureMode);
       });
     }
   }, {
     key: 'removeScrollListener',
     value: function removeScrollListener() {
+      var _this9 = this;
+
       this.getScrollHideListenerNode().forEach(function (n) {
-        n.removeEventListener('scroll', this.hideTooltip);
+        n.removeEventListener('scroll', _this9.hideTooltip);
       });
     }
 
@@ -2048,7 +2052,7 @@ var ReactTooltip = (0, _staticMethods2.default)(_class = (0, _windowListener2.de
   }, {
     key: 'updatePosition',
     value: function updatePosition() {
-      var _this8 = this;
+      var _this10 = this;
 
       var _state3 = this.state,
           currentEvent = _state3.currentEvent,
@@ -2063,7 +2067,7 @@ var ReactTooltip = (0, _staticMethods2.default)(_class = (0, _windowListener2.de
       if (result.isNewState) {
         // Switch to reverse placement
         return this.setState(result.newState, function () {
-          _this8.updatePosition();
+          _this10.updatePosition();
         });
       }
       // Set tooltip position
