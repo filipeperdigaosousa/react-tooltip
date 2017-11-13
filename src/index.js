@@ -379,11 +379,11 @@ class ReactTooltip extends Component {
    */
   addScrollListener (e) {
     const isCaptureMode = this.isCapture(e.currentTarget)
-    this.getScrollHideListenerNode().forEach( function(n){ n.addEventListener('scroll', this.hideTooltip, isCaptureMode)})
+    this.getScrollHideListenerNode().forEach(function (n) { n.addEventListener('scroll', this.hideTooltip, isCaptureMode) })
   }
 
   removeScrollListener () {
-    this.getScrollHideListenerNode().forEach( function(n){ n.removeEventListener('scroll', this.hideTooltip)});
+    this.getScrollHideListenerNode().forEach(function (n) { n.removeEventListener('scroll', this.hideTooltip) })
   }
 
   /**

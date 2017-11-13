@@ -456,12 +456,16 @@ var ReactTooltip = (0, _staticMethods2.default)(_class = (0, _windowListener2.de
     key: 'addScrollListener',
     value: function addScrollListener(e) {
       var isCaptureMode = this.isCapture(e.currentTarget);
-      this.getScrollHideListenerNode().addEventListener('scroll', this.hideTooltip, isCaptureMode);
+      this.getScrollHideListenerNode().forEach(function (n) {
+        n.addEventListener('scroll', this.hideTooltip, isCaptureMode);
+      });
     }
   }, {
     key: 'removeScrollListener',
     value: function removeScrollListener() {
-      this.getScrollHideListenerNode().removeEventListener('scroll', this.hideTooltip);
+      this.getScrollHideListenerNode().forEach(function (n) {
+        n.removeEventListener('scroll', this.hideTooltip);
+      });
     }
 
     /**
@@ -475,8 +479,8 @@ var ReactTooltip = (0, _staticMethods2.default)(_class = (0, _windowListener2.de
       if (!this.props.scrollHideSelector) {
         return window;
       } else {
-        var node = document.querySelector(this.props.scrollHideSelector);
-        return node || window;
+        var nodes = document.querySelectorAll(this.props.scrollHideSelector);
+        return nodes || window;
       }
     }
 
